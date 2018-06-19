@@ -3,8 +3,7 @@ create table cargo(
 	nombre varchar(25),
 	constraint cargo_pk primary key(idCargo)
 );
-
-insert into cargo(nombreCargo) values ('Usuario Ninty'), ('Administrador')
+insert into cargo(nombre) values ('Usuario Ninty'), ('Administrador');
 
 select * from cargo
 
@@ -27,8 +26,9 @@ values (1234567890123, 'Admin1 NOmbre','Admin1 Apellido', 'Ninty', md5('asdf'), 
 
 select *, cargo.nombre from persona inner join cargo on persona.idCargo = cargo.idCargo
 
+select * from persona
 
-
+select nombres as "gua" from persona where idPersona = 1
 
 
 

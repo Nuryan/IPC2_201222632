@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Portal.master.cs" Inherits="ProyectoIPC2.Páginas.Maestra.Portal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../Agregados/EstilosCSS/estiloMaestraPrincipal.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="contenedor">
+            <div class="div1">
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="CRUD Módulos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button2" runat="server" Text="Tareas" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button3" runat="server" Text="Conocimientos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button12" runat="server" Text="Freelancers" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button4" runat="server" Text="Contactos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button5" runat="server" Text="Mensajes" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button6" runat="server" Text="Cuenta" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button7" runat="server" Text="CRUD Proyectos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button8" runat="server" Text="CRUD Tareas" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button9" runat="server" Text="CRUD Conocimientos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button10" runat="server" Text="CRUD usuarios" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button11" runat="server" Text="CRUD Denuncias" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="div2">
+                
+                <asp:ContentPlaceHolder ID ="div2" runat="server" >
+            </asp:ContentPlaceHolder>
+            </div>
+           
+        </div>
+    </form>
+</body>
+</html>

@@ -5,6 +5,10 @@
  */
 package Servicio;
 
+import conexion.Conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -16,11 +20,37 @@ import javax.jws.WebParam;
 @WebService(serviceName = "WSIPC2")
 public class WSIPC2 {
 
+    private Connection con = null;
+    private String sql = "";
+    private Statement sentencia = null;
+
+    public static void main(String args[]) {
+        WSIPC2 asdf = new WSIPC2();
+        System.out.println(asdf.hello("asdf"));
+    }
+
     /**
      * This is a sample web service operation
      */
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+        try {
+            String devolver = "";
+            con = Conexion.getConexion();
+            sql = "select nombres as gua from persona where idPersona = 1";
+            ResultSet resultado = null;
+            sentencia = con.createStatement();
+
+            resultado = sentencia.executeQuery(sql);
+            while (resultado.next()) {
+                devolver = resultado.getString("gua");
+            }
+            resultado.close();
+            sentencia.close();
+            con.close();
+            return devolver;
+        } catch (Exception e) {
+            return e.toString();
+        }
     }
 }

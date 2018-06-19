@@ -12,12 +12,12 @@ namespace ProyectoIPC2.Páginas.Login
         WServiceIPC2.WSIPC2 ws = new WServiceIPC2.WSIPC2();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = ws.hello(TextBox1.Text);
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Label1.Text = ws.hello(TextBox1.Text);
         }
 
         protected void Button2_Click(object sender, EventArgs e)
