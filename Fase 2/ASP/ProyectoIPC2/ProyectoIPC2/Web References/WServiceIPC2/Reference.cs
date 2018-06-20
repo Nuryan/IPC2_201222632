@@ -29,6 +29,8 @@ namespace ProyectoIPC2.WServiceIPC2 {
     [System.Web.Services.WebServiceBindingAttribute(Name="WSIPC2PortBinding", Namespace="http://Servicio/")]
     public partial class WSIPC2 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback loginOperationCompleted;
+        
         private System.Threading.SendOrPostCallback helloOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -70,7 +72,42 @@ namespace ProyectoIPC2.WServiceIPC2 {
         }
         
         /// <remarks/>
+        public event loginCompletedEventHandler loginCompleted;
+        
+        /// <remarks/>
         public event helloCompletedEventHandler helloCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://Servicio/", ResponseNamespace="http://Servicio/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string login([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string usuario, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string contraseña) {
+            object[] results = this.Invoke("login", new object[] {
+                        usuario,
+                        contraseña});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void loginAsync(string usuario, string contraseña) {
+            this.loginAsync(usuario, contraseña, null);
+        }
+        
+        /// <remarks/>
+        public void loginAsync(string usuario, string contraseña, object userState) {
+            if ((this.loginOperationCompleted == null)) {
+                this.loginOperationCompleted = new System.Threading.SendOrPostCallback(this.OnloginOperationCompleted);
+            }
+            this.InvokeAsync("login", new object[] {
+                        usuario,
+                        contraseña}, this.loginOperationCompleted, userState);
+        }
+        
+        private void OnloginOperationCompleted(object arg) {
+            if ((this.loginCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.loginCompleted(this, new loginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://Servicio/", ResponseNamespace="http://Servicio/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -118,6 +155,32 @@ namespace ProyectoIPC2.WServiceIPC2 {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void loginCompletedEventHandler(object sender, loginCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class loginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal loginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
         }
     }
     

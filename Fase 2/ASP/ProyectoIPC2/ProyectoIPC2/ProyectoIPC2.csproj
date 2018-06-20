@@ -76,13 +76,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Páginas\Login\crearUsuario.aspx" />
     <Content Include="Páginas\Login\Login.aspx" />
-    <Content Include="Web References\WServiceIPC2\Reference.map">
+    <None Include="Web References\WServiceIPC2\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Páginas\Maestra\loginYCreacion.Master" />
-    <Content Include="Páginas\Maestra\Portal.Master" />
+    <Content Include="Páginas\Maestra\portalMaestra.Master" />
     <None Include="Web References\WServiceIPC2\WSIPC2.wsdl" />
     <None Include="Web References\WServiceIPC2\WSIPC2.xsd">
       <SubType>Designer</SubType>
@@ -105,6 +106,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Páginas\Login\crearUsuario.aspx.cs">
+      <DependentUpon>crearUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Login\crearUsuario.aspx.designer.cs">
+      <DependentUpon>crearUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Páginas\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,12 +127,12 @@
     <Compile Include="Páginas\Maestra\loginYCreacion.Master.designer.cs">
       <DependentUpon>loginYCreacion.Master</DependentUpon>
     </Compile>
-    <Compile Include="Páginas\Maestra\Portal.Master.cs">
-      <DependentUpon>Portal.Master</DependentUpon>
+    <Compile Include="Páginas\Maestra\portalMaestra.Master.cs">
+      <DependentUpon>portalMaestra.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Páginas\Maestra\Portal.Master.designer.cs">
-      <DependentUpon>Portal.Master</DependentUpon>
+    <Compile Include="Páginas\Maestra\portalMaestra.Master.designer.cs">
+      <DependentUpon>portalMaestra.Master</DependentUpon>
     </Compile>
     <Compile Include="Web References\WServiceIPC2\Reference.cs">
       <AutoGen>True</AutoGen>

@@ -17,7 +17,13 @@ namespace ProyectoIPC2.Páginas.Login
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Label1.Text = ws.hello(TextBox1.Text);
+            if (!ws.login(TextBox1.Text, TextBox2.Text).Equals("No Encontrado"))
+            {
+                Label1.Text="Usuario correcto";
+            }else
+            {
+                Label1.Text = "Usuario o Contraseña Incorrectos";
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)

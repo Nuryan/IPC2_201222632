@@ -24,11 +24,6 @@ public class WSIPC2 {
     private String sql = "";
     private Statement sentencia = null;
 
-    public static void main(String args[]) {
-        WSIPC2 asdf = new WSIPC2();
-        System.out.println(asdf.hello("asdf"));
-    }
-
     /**
      * This is a sample web service operation
      */
@@ -53,4 +48,30 @@ public class WSIPC2 {
             return e.toString();
         }
     }
+
+    @WebMethod(operationName = "login")
+    public String login(@WebParam(name = "usuario") String usuario, @WebParam(name = "contraseña") String contraseña) {
+        try {
+
+            String devolver = "No Encontrado";
+            con = Conexion.getConexion();
+            sql = "SELECT idPersona AS \"id\" FROM persona WHERE email = '"+usuario+"' AND contraseña = MD5('"+contraseña+"')";
+            ResultSet resultado = null;
+            sentencia = con.createStatement();
+
+            resultado = sentencia.executeQuery(sql);
+            while (resultado.next()) {
+                devolver = resultado.getString(1);
+            }
+            resultado.close();
+            sentencia.close();
+            con.close();
+            return devolver;
+        } catch (Exception e) {
+            return "No Encontrado";
+        }
+    }
+    
+    
+    
 }

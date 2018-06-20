@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="portalMaestra.Master.cs" Inherits="ProyectoIPC2.Páginas.Maestra.Portal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../Agregados/EstilosCSS/estiloMaestraPrincipal.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="contenedor">
+            <div class="div1">
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Tienda" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button1_Click" />
+                <br />
+                <br />
+                <asp:Button ID="Button2" runat="server" Text="Mi Usuario" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button3" runat="server" Text="Administrar Usuarios" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button4" runat="server" Text="Administrar Modulos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button5" runat="server" Text="Visualizar Estadisticas" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+                <asp:Button ID="Button6" runat="server" Text="Desconectar" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <br />
+                <br />
+            </div>
+            <div class="div2">
+                
+                <asp:ContentPlaceHolder ID ="div2" runat="server" >
+            </asp:ContentPlaceHolder>
+            </div>
+           
+        </div>
+    </form>
+</body>
+</html>
