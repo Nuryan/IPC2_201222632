@@ -5,31 +5,61 @@
       <xsd:import schemaLocation="http://localhost:8080/WSProyecto/WSIPC2?xsd=1" namespace="http://Servicio/" />
     </xsd:schema>
   </types>
-  <message name="login">
-    <part name="parameters" element="tns:login" />
-  </message>
-  <message name="loginResponse">
-    <part name="parameters" element="tns:loginResponse" />
-  </message>
   <message name="hello">
     <part name="parameters" element="tns:hello" />
   </message>
   <message name="helloResponse">
     <part name="parameters" element="tns:helloResponse" />
   </message>
+  <message name="prueba">
+    <part name="parameters" element="tns:prueba" />
+  </message>
+  <message name="pruebaResponse">
+    <part name="parameters" element="tns:pruebaResponse" />
+  </message>
+  <message name="getCargoUsuario">
+    <part name="parameters" element="tns:getCargoUsuario" />
+  </message>
+  <message name="getCargoUsuarioResponse">
+    <part name="parameters" element="tns:getCargoUsuarioResponse" />
+  </message>
+  <message name="crearUsuario">
+    <part name="parameters" element="tns:crearUsuario" />
+  </message>
+  <message name="crearUsuarioResponse">
+    <part name="parameters" element="tns:crearUsuarioResponse" />
+  </message>
+  <message name="login">
+    <part name="parameters" element="tns:login" />
+  </message>
+  <message name="loginResponse">
+    <part name="parameters" element="tns:loginResponse" />
+  </message>
   <portType name="WSIPC2">
-    <operation name="login">
-      <input wsam:Action="http://Servicio/WSIPC2/loginRequest" message="tns:login" />
-      <output wsam:Action="http://Servicio/WSIPC2/loginResponse" message="tns:loginResponse" />
-    </operation>
     <operation name="hello">
       <input wsam:Action="http://Servicio/WSIPC2/helloRequest" message="tns:hello" />
       <output wsam:Action="http://Servicio/WSIPC2/helloResponse" message="tns:helloResponse" />
     </operation>
+    <operation name="prueba">
+      <input wsam:Action="http://Servicio/WSIPC2/pruebaRequest" message="tns:prueba" />
+      <output wsam:Action="http://Servicio/WSIPC2/pruebaResponse" message="tns:pruebaResponse" />
+    </operation>
+    <operation name="getCargoUsuario">
+      <input wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioRequest" message="tns:getCargoUsuario" />
+      <output wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioResponse" message="tns:getCargoUsuarioResponse" />
+    </operation>
+    <operation name="crearUsuario">
+      <input wsam:Action="http://Servicio/WSIPC2/crearUsuarioRequest" message="tns:crearUsuario" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearUsuarioResponse" message="tns:crearUsuarioResponse" />
+    </operation>
+    <operation name="login">
+      <input wsam:Action="http://Servicio/WSIPC2/loginRequest" message="tns:login" />
+      <output wsam:Action="http://Servicio/WSIPC2/loginResponse" message="tns:loginResponse" />
+    </operation>
   </portType>
   <binding name="WSIPC2PortBinding" type="tns:WSIPC2">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="login">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +68,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="prueba">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCargoUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="crearUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="login">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -31,13 +31,13 @@ namespace ProyectoIPC2.Páginas.Login {
         protected global::System.Web.UI.WebControls.TextBox apellidos;
         
         /// <summary>
-        /// Control apodo.
+        /// Control email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox apodo;
+        protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
         /// Control pass.

@@ -22,7 +22,13 @@
                 <asp:Button ID="Button1" runat="server" Text="Tienda" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button1_Click" />
                 <br />
                 <br />
-                <asp:Button ID="Button2" runat="server" Text="Mi Usuario" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
+                <asp:Button ID="Button2" runat="server" Text="Mi Usuario" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button2_Click" />
+                <br />
+                <br />
+                <asp:Button ID="Button7" runat="server" Text="Mi Organizacion" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button7_Click" />
+                <br />
+                <br />
+                <asp:Button ID="Button8" runat="server" Text="Mis Modulos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button7_Click" />
                 <br />
                 <br />
                 <asp:Button ID="Button3" runat="server" Text="Administrar Usuarios" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
@@ -34,8 +40,7 @@
                 <asp:Button ID="Button5" runat="server" Text="Visualizar Estadisticas" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
                 <br />
                 <br />
-                <asp:Button ID="Button6" runat="server" Text="Desconectar" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
-                <br />
+                <asp:Button ID="Button6" runat="server" Text="Desconectar" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button6_Click1" />
                 <br />
             </div>
             <div class="div2">

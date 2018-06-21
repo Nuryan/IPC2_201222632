@@ -63,11 +63,63 @@ create table Persona(
 SELECT *
 FROM persona
 
-insert into persona(dpi, nombre, apellidos, email, contraseña) values ()
+insert into persona(dpi, nombres, apellidos, email, contraseña) values ()
+
+select nombres from persona where email = 'correo1'
+
+select * from persona
 
 
+INSERT INTO persona(dpi, nombres, apellidos, email, contraseña) 
+VALUES (dpi,'nombres','apellidos','email', MD5('contraseña'))
 
 
+select * from persona
+
+select idcargo from persona where email = 'correo1'
+
+create table organizacion(
+	idOrganizacion serial,
+	nombre varchar(50) unique not null,
+	fechaInscripcion TIMESTAMP DEFAULT now(),
+	constraint organizacion_pk primary key(idOrganizacion)
+);
+
+insert into organizacion(nombre) values('organizacion1')
+
+select * from organizacion
+
+create table participanteOrganizacion(
+	idParticipanteOrganizacion serial,
+	idPersona int,
+	idOrganizacion int,
+	administrador int,
+	constraint participanteOrganizacion_fk_Persona foreign key (idPersona) references Persona(idPersona),
+	constraint participanteOrganizacion_fk_Organizacion foreign key (idOrganizacion) references Organizacion(idOrganizacion),
+	constraint participanteOrganizacion_pk primary key(idPersona, idOrganizacion)
+);
+
+
+select * from cargo
+
+insert into cargo (nombre) values ('UsuarioFinal')
+
+
+update persona set contraseña = MD5('01234') where email = 'correoAp1'
+
+select * from persona where contraseña = MD5('asdf')
+
+create table Modulo(
+	idModulo serial,
+	nombre varchar(25) unique not null,
+	precio float not null default 0.0,
+	dbIP varchar(21) not null,
+	dbNombre varchar(25) not null unique,
+	dbUsuario varchar(25) not null,
+	dbPass varchar(100) not null,
+	descripcion varchar(150) not null default 'Pendiente de agregar',
+	constraint modulo_pk primary key(idModulo) 
+);
 
 
 

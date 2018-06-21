@@ -55,7 +55,7 @@ public class WSIPC2 {
 
             String devolver = "No Encontrado";
             con = Conexion.getConexion();
-            sql = "SELECT idPersona AS \"id\" FROM persona WHERE email = '"+usuario+"' AND contraseña = MD5('"+contraseña+"')";
+            sql = "SELECT idPersona AS \"id\" FROM persona WHERE email = '" + usuario + "' AND contraseña = MD5('" + contraseña + "')";
             ResultSet resultado = null;
             sentencia = con.createStatement();
 
@@ -68,10 +68,33 @@ public class WSIPC2 {
             con.close();
             return devolver;
         } catch (Exception e) {
-            return "No Encontrado";
+            return "Error de db";
         }
     }
-    
-    
-    
+
+    @WebMethod(operationName = "prueba")
+    public int prueba(@WebParam(name = "email") String email) {
+        Usuario usu = new Usuario();
+        return usu.existeUsuario(email);
+    }
+
+    @WebMethod(operationName = "crearUsuario")
+    public String crearUsuario(
+            @WebParam(name = "dpi") String dpi,
+            @WebParam(name = "nombres") String nombres,
+            @WebParam(name = "apellidos") String apellidos,
+            @WebParam(name = "contraseña") String contraseña,
+            @WebParam(name = "contraseñaRep") String contraseñaRep,
+            @WebParam(name = "email") String email) {
+
+        Usuario usu = new Usuario();
+        return usu.crearUsuarioLogin(dpi, nombres, apellidos, contraseña, contraseñaRep, email);
+    }
+
+    @WebMethod(operationName = "getCargoUsuario")
+    public int getCargoUsuario(@WebParam(name = "email") String email) {
+        Usuario usu = new Usuario();
+        return usu.getCargo(email);
+    }
+
 }

@@ -17,18 +17,19 @@ namespace ProyectoIPC2.Páginas.Login
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (!ws.login(TextBox1.Text, TextBox2.Text).Equals("No Encontrado"))
-            {
-                Label1.Text="Usuario correcto";
-            }else
+            if (ws.login(TextBox1.Text, TextBox2.Text).Equals("No Encontrado"))
             {
                 Label1.Text = "Usuario o Contraseña Incorrectos";
+            }else
+            {
+                Session["usuario"] = TextBox1.Text;
+                Server.Transfer("~/Páginas/Modulos/portal.aspx", true);
             }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            Server.Transfer("crearUsuario.aspx");
         }
 
         protected void Button3_Click(object sender, EventArgs e)

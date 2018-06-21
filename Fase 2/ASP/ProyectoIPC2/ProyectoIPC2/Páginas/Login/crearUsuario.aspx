@@ -35,7 +35,7 @@
                    
                     email: *</td>
                 <td>
-                    <asp:TextBox ID="apodo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="email" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

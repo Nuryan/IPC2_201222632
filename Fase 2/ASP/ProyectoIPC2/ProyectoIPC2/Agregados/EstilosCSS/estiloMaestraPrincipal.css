@@ -3,7 +3,7 @@
 /* Ubicación de la imagen */
 
 background-image: url(../Imagenes/camish2.jpg);
-
+/*
 /* Para dejar la imagen de fondo centrada, vertical y
 
 horizontalmente */
@@ -30,6 +30,12 @@ background-color: #000000;
 
 color:white;
 }
+div.centrar{
+    text-align:center;
+    align-content:center;
+
+}
+
 div.contenedor {
     width: 100%;
     height: 100%;
