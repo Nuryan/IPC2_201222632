@@ -5,10 +5,5 @@
     <center>
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        pagina de la tienda
     </center>
 </asp:Content>

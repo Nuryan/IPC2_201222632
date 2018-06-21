@@ -98,6 +98,8 @@
   <ItemGroup>
     <Content Include="Páginas\Modulos\portal.aspx" />
     <Content Include="Páginas\Modulos\Tienda\tienda.aspx" />
+    <Content Include="Páginas\Organizacion\crearOrganizacion.aspx" />
+    <Content Include="Páginas\Organizacion\modificarOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\organizacion.aspx" />
     <Content Include="Páginas\Usuario\miUsuario.aspx" />
     <Content Include="Web.config" />
@@ -151,6 +153,20 @@
     </Compile>
     <Compile Include="Páginas\Modulos\Tienda\tienda.aspx.designer.cs">
       <DependentUpon>tienda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\crearOrganizacion.aspx.cs">
+      <DependentUpon>crearOrganizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\crearOrganizacion.aspx.designer.cs">
+      <DependentUpon>crearOrganizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\modificarOrganizacion.aspx.cs">
+      <DependentUpon>modificarOrganizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\modificarOrganizacion.aspx.designer.cs">
+      <DependentUpon>modificarOrganizacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Páginas\Organizacion\organizacion.aspx.cs">
       <DependentUpon>organizacion.aspx</DependentUpon>

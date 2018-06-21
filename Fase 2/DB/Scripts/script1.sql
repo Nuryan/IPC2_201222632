@@ -57,7 +57,7 @@ create table Persona(
 	idCargo integer default 1,
 	email varchar(50) not null unique,
 	constraint persona_pk primary key (idPersona),
-	constraint persona_fk_cargo foreign key (idCargo) references cargo(idCargo)	
+	constraint persona_fk_cargo foreign key (idCargo) references cargo(idCargo) on update cascade on delete cascade
 );
 
 SELECT *
@@ -68,13 +68,13 @@ insert into persona(dpi, nombres, apellidos, email, contraseña) values ()
 select nombres from persona where email = 'correo1'
 
 select * from persona
-
+update persona set idCargo = 2 where idPersona = 1
 
 INSERT INTO persona(dpi, nombres, apellidos, email, contraseña) 
-VALUES (dpi,'nombres','apellidos','email', MD5('contraseña'))
+VALUES (1231231230,'nombres','apellidos','email', MD5('contraseña'))
 
 
-select * from persona
+select * from cargo
 
 select idcargo from persona where email = 'correo1'
 
@@ -85,7 +85,7 @@ create table organizacion(
 	constraint organizacion_pk primary key(idOrganizacion)
 );
 
-insert into organizacion(nombre) values('organizacion1')
+insert into organizacion(nombre) values('organizacion1'),('organizacion2')
 
 select * from organizacion
 
@@ -94,8 +94,8 @@ create table participanteOrganizacion(
 	idPersona int,
 	idOrganizacion int,
 	administrador int,
-	constraint participanteOrganizacion_fk_Persona foreign key (idPersona) references Persona(idPersona),
-	constraint participanteOrganizacion_fk_Organizacion foreign key (idOrganizacion) references Organizacion(idOrganizacion),
+	constraint participanteOrganizacion_fk_Persona foreign key (idPersona) references Persona(idPersona)on update cascade on delete cascade,
+	constraint participanteOrganizacion_fk_Organizacion foreign key (idOrganizacion) references Organizacion(idOrganizacion)on update cascade on delete cascade,
 	constraint participanteOrganizacion_pk primary key(idPersona, idOrganizacion)
 );
 
@@ -120,6 +120,67 @@ create table Modulo(
 	descripcion varchar(150) not null default 'Pendiente de agregar',
 	constraint modulo_pk primary key(idModulo) 
 );
+
+create table moduloAdquirido(
+	idModuloAdquirido serial,
+	idPersona integer,
+	idOrganizacion integer,
+	idModulo integer,
+	fechaCompra TIMESTAMP DEFAULT now(),	
+	recontratos integer not null default 0,
+	constraint moduloAdquirido_fk_Persona foreign key(idPersona) references Persona(idPersona)on update cascade on delete cascade,
+	constraint moduloAdquirido_fk_Organizacion foreign key(idOrganizacion) references Organizacion(idOrganizacion)on update cascade on delete cascade,
+	constraint moduloAdquirido_fk_Modulo foreign key(idModulo) references Modulo(idModulo)on update cascade on delete cascade,
+	constraint moduloAdquirido_pk primary key(idPersona, idOrganizacion, idModulo)
+	
+);
+
+select * from modulo
+
+insert into modulo (nombre, precio, dbip, dbnombre, dbusuario, dbpass, descripcion)
+
+select * from organizacion
+
+update organizacion set nombre = 'Ninty' where idOrganizacion = 1
+
+select * from persona
+
+update persona set nombres = 'master', apellidos = 'master', email = 'master' where idPersona = 1
+
+select * from participanteOrganizacion;
+select * from organizacion
+
+
+insert into participanteOrganizacion(idPersona, idOrganizacion, administrador) values(1,1,1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

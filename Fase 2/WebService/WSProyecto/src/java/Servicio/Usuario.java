@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 
 /**
  *
@@ -109,18 +111,40 @@ public class Usuario {
             sql = "select idcargo from persona where email = '" + email + "'";
 
             ResultSet resul = null;
-            sentencia  = con.createStatement();
-            
+            sentencia = con.createStatement();
+
             resul = sentencia.executeQuery(sql);
-            
-            while(resul.next()){
+
+            while (resul.next()) {
                 devolver = resul.getInt(1);
             }
-            
+
             return devolver;
         } catch (Exception e) {
             return -1;
         }
     }
+    
+    public int getIdPersona(String email) {
+        con = Conexion.getConexion();
 
+        int devolver = -2;
+
+        try {
+            sql = "select idPersona from persona where email = '"+email+"'";
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                devolver = resul.getInt(1);
+            }
+
+            return devolver;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 }

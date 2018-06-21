@@ -73,9 +73,10 @@ public class WSIPC2 {
     }
 
     @WebMethod(operationName = "prueba")
-    public int prueba(@WebParam(name = "email") String email) {
+    public int prueba(@WebParam(name = "Dato1") String dato1) {
         Usuario usu = new Usuario();
-        return usu.existeUsuario(email);
+        Organizacion orga = new Organizacion();
+        return orga.getPlazasDisponibles(dato1);
     }
 
     @WebMethod(operationName = "crearUsuario")
@@ -97,4 +98,13 @@ public class WSIPC2 {
         return usu.getCargo(email);
     }
 
+   @WebMethod(operationName="crearOrganizacion")
+    public String crearOrganizacion(
+            @WebParam(name = "nombre")String nombre,
+            @WebParam(name = "email")String email) {
+        Organizacion orga = new Organizacion();
+        return orga.crearOrganizacion(nombre, email);
+    }
+    
+  
 }
