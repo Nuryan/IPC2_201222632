@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
@@ -124,14 +125,14 @@ public class Usuario {
             return -1;
         }
     }
-    
+
     public int getIdPersona(String email) {
         con = Conexion.getConexion();
 
         int devolver = -2;
 
         try {
-            sql = "select idPersona from persona where email = '"+email+"'";
+            sql = "select idPersona from persona where email = '" + email + "'";
 
             ResultSet resul = null;
             sentencia = con.createStatement();
@@ -145,6 +146,187 @@ public class Usuario {
             return devolver;
         } catch (Exception e) {
             return -1;
+        }
+    }
+
+    public String crearEmpleado(String dpi, String nombres, String apellidos, String contraseña, String contraseñaRep, String emailEmpleado, String emailUsuario) {
+        if (getPlazasDisponibles(emailUsuario)>0) {
+            if (crearUsuarioLogin(dpi, nombres, apellidos, contraseña, contraseñaRep, emailEmpleado).equals("Usuario Creado")) {
+
+                if (alterarCargo(emailEmpleado) > 0) {
+                    if (añadirEmpleado(emailUsuario, emailEmpleado) > 0) {
+                        reducirPlazasEmpleado(emailEmpleado);
+                        return "Usuario Creado";
+                    } else {
+                        return "Usuario Noo Creado";
+                    }
+                } else {
+                    return "Usuario NO Creado";
+                }
+
+            } else {
+                return "Usuario no Creado";
+            }
+        } else {
+            return "Numero de empleado maximo alcanzado";
+        }
+    }
+
+    public int añadirEmpleado(String emailUsuario, String emailEmpleado) {
+        int resultado = 0;
+
+        con = Conexion.getConexion();
+
+        sql = "insert into empleado(idUsuario, idEmpleado) values(" + getIdPersona(emailUsuario) + "," + getIdPersona(emailEmpleado) + ")";
+
+        try {
+
+            sentencia = con.createStatement();
+            resultado = sentencia.executeUpdate(sql);
+
+            sentencia.close();
+            con.close();
+            sql = "";
+
+            if (resultado > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public int alterarCargo(String email) {
+        //lo pone como empleado, que es el rango 3
+        int resultado = 0;
+
+        con = Conexion.getConexion();
+
+        sql = "update persona set idCargo = 3 where idPersona = " + getIdPersona(email);
+
+        try {
+
+            sentencia = con.createStatement();
+            resultado = sentencia.executeUpdate(sql);
+
+            sentencia.close();
+            con.close();
+            sql = "";
+
+            if (resultado > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+    
+    public int reducirPlazasEmpleado(String email){
+        //evita que el empleado pueda crear mas empleados
+        int resultado = 0;
+
+        con = Conexion.getConexion();
+
+        sql = "update persona set numEmpleados = 0 where idPersona = " + getIdPersona(email);
+
+        try {
+
+            sentencia = con.createStatement();
+            resultado = sentencia.executeUpdate(sql);
+
+            sentencia.close();
+            con.close();
+            sql = "";
+
+            if (resultado > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public int getPlazasOcupadas(String email) {
+        int plazasOcupadas = 0;
+
+        con = Conexion.getConexion();
+        try {
+            sql = "select count(*) from empleado where idUsuario = 1 " + getIdPersona(email);
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                plazasOcupadas = resul.getInt(1);
+            }
+            return plazasOcupadas;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public int getPlazasTotales(String email) {
+        int plazasTotales = 0;
+
+        con = Conexion.getConexion();
+        try {
+            sql = "select numEmpleados from persona where idPersona = " + getIdPersona(email);
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                plazasTotales = resul.getInt(1);
+            }
+            return plazasTotales;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public int getPlazasDisponibles(String email) {
+        if (getPlazasTotales(email) - getPlazasOcupadas(email) > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    
+    public ArrayList<String> listarParticipantes(String emailEncargado) {
+        con = Conexion.getConexion();
+        ArrayList<String> listado = new ArrayList<String>();
+
+        try {
+            sql = "select persona.email from empleado inner join persona on persona.idPersona = empleado.idEmpleado where empleado.idUsuario = "+getIdPersona(emailEncargado);
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                listado.add(resul.getString(1));
+            }
+            sentencia.close();
+            con.close();
+            sql = "";
+            return listado;
+        } catch (Exception e) {
+            ArrayList<String> devolver = new ArrayList<String>();
+            
+            devolver.add("No se encontro ningun empleado");
+            
+            return devolver;
         }
     }
 }

@@ -6,5 +6,7 @@
     <center>
     <asp:Label runat="server" Text="Cargar Informacion de:  "></asp:Label>
     <asp:dropdownlist runat="server"></asp:dropdownlist>
+    <asp:Button runat="server" Text="Cargar" OnClick="Unnamed3_Click"></asp:Button>
+
     </center>
 </asp:Content>

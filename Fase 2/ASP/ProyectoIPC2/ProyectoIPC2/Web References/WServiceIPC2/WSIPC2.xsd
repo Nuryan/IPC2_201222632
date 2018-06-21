@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://Servicio/" targetNamespace="http://Servicio/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="añadirParticipanteAOrganizacion" type="tns:añadirParticipanteAOrganizacion" />
+  <xs:element name="añadirParticipanteAOrganizacionResponse" type="tns:añadirParticipanteAOrganizacionResponse" />
+  <xs:element name="crearEmpleado" type="tns:crearEmpleado" />
+  <xs:element name="crearEmpleadoResponse" type="tns:crearEmpleadoResponse" />
   <xs:element name="crearOrganizacion" type="tns:crearOrganizacion" />
   <xs:element name="crearOrganizacionResponse" type="tns:crearOrganizacionResponse" />
   <xs:element name="crearUsuario" type="tns:crearUsuario" />
@@ -8,10 +12,40 @@
   <xs:element name="getCargoUsuarioResponse" type="tns:getCargoUsuarioResponse" />
   <xs:element name="hello" type="tns:hello" />
   <xs:element name="helloResponse" type="tns:helloResponse" />
+  <xs:element name="listarEmpleados" type="tns:listarEmpleados" />
+  <xs:element name="listarEmpleadosResponse" type="tns:listarEmpleadosResponse" />
+  <xs:element name="listarOrganizaciones" type="tns:listarOrganizaciones" />
+  <xs:element name="listarOrganizacionesResponse" type="tns:listarOrganizacionesResponse" />
   <xs:element name="login" type="tns:login" />
   <xs:element name="loginResponse" type="tns:loginResponse" />
   <xs:element name="prueba" type="tns:prueba" />
   <xs:element name="pruebaResponse" type="tns:pruebaResponse" />
+  <xs:complexType name="crearEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dpi" type="xs:string" />
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidos" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseña" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseñaRep" type="xs:string" />
+      <xs:element minOccurs="0" name="emailEmpleado" type="xs:string" />
+      <xs:element minOccurs="0" name="emailUsuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearEmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrganizaciones">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrganizacionesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="crearUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="dpi" type="xs:string" />
@@ -48,6 +82,17 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="añadirParticipanteAOrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="organizacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="añadirParticipanteAOrganizacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="hello">
     <xs:sequence>
       <xs:element minOccurs="0" name="name" type="xs:string" />
@@ -61,6 +106,7 @@
   <xs:complexType name="crearOrganizacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="crearOrganizacionResponse">
@@ -70,12 +116,23 @@
   </xs:complexType>
   <xs:complexType name="prueba">
     <xs:sequence>
-      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="Dato1" type="xs:string" />
+      <xs:element minOccurs="0" name="Dato2" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="pruebaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpleados">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpleadosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

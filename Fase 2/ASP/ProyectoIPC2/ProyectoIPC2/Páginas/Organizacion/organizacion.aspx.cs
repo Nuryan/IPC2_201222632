@@ -18,5 +18,10 @@ namespace ProyectoIPC2.Páginas.Organizacion
         {
 
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Páginas/Organizacion/añadirEmpleadoOrganizacion.aspx");
+        }
     }
 }

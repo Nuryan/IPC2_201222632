@@ -9,6 +9,7 @@ import conexion.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -81,7 +82,7 @@ public class Organizacion {
             return -1;
         }
     }
-    
+
     public int getPlazasTotales(String nombre) {
         int plazasTotales = 0;
 
@@ -103,14 +104,14 @@ public class Organizacion {
         }
     }
 
-    public int getPlazasDisponibles(String nombre){
-        if(getPlazasTotales(nombre)-getPlazasOcupadas(nombre)>0){
+    public int getPlazasDisponibles(String nombre) {
+        if (getPlazasTotales(nombre) - getPlazasOcupadas(nombre) > 0) {
             return 1;
-        }else{
+        } else {
             return 0;
         }
     }
-    
+
     public int getIdOrganizacion(String nombre) {
         con = Conexion.getConexion();
 
@@ -157,4 +158,110 @@ public class Organizacion {
             return -2;
         }
     }
+
+    public String añadirParticipante(String email, String nombre) {
+        if (getParticipacionParticipanteEnOrganizacion(email, nombre) == 0) {
+            int resultado = 0;
+            con = Conexion.getConexion();
+            Usuario us = new Usuario();
+            sql = "insert into participanteOrganizacion(idPersona, idOrganizacion, administrador) values (" + us.getIdPersona(email) + "," + getIdOrganizacion(nombre) + ",0)";
+
+            try {
+
+                sentencia = con.createStatement();
+                resultado = sentencia.executeUpdate(sql);
+
+                sentencia.close();
+                con.close();
+                sql = "";
+                if (resultado > 0) {
+                    return "Participante Agregado";
+                } else {
+                    return "no se ha podido añadir al participante";
+                }
+            } catch (Exception e) {
+                return "No se ha podido añadir al participante";
+            }
+        } else {
+            return "El Participante ya pertenece a la organizacion";
+        }
+    }
+
+    public int getParticipacionParticipanteEnOrganizacion(String email, String nombre) {
+        Usuario us = new Usuario();
+        int plazasTotales = 0;
+
+        con = Conexion.getConexion();
+        try {
+            sql = "select count(*) from participanteOrganizacion where idPersona =" + us.getIdPersona(email) + " and idOrganizacion = " + getIdOrganizacion(nombre);
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                plazasTotales = resul.getInt(1);
+            }
+            return plazasTotales;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public ArrayList<String> listarOrganizaciones(String emailEncargado) {
+        Usuario us = new Usuario();
+        con = Conexion.getConexion();
+        ArrayList<String> listado = new ArrayList<String>();
+
+        try {
+            sql = "SELECT organizacion.nombre\n"
+                    + "FROM organizacion\n"
+                    + "INNER JOIN participanteOrganizacion ON organizacion.idorganizacion = participanteOrganizacion.idOrganizacion\n"
+                    + "WHERE Participanteorganizacion.administrador = 1 AND participanteorganizacion.idPersona = " + us.getIdPersona(emailEncargado);
+
+            ResultSet resul = null;
+            sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                listado.add(resul.getString(1));
+            }
+            sentencia.close();
+            con.close();
+            sql = "";
+            return listado;
+        } catch (Exception e) {
+            ArrayList<String> devolver = new ArrayList<String>();
+
+            devolver.add("No se encontro ninguna organizacion");
+
+            return devolver;
+        }
+    }
+
+    public int añadirModulosDefault(String email, String nombre) {
+        int resultado = 0;
+        int idUsuario = new Usuario().getIdPersona(email);
+        int idOrganizacion = getIdOrganizacion(nombre);
+        con = Conexion.getConexion();
+
+        sql = "insert into moduloAdquirido (idPersona, idOrganizacion, idModulo) values ('')";
+
+        try {
+
+            sentencia = con.createStatement();
+            resultado = sentencia.executeUpdate(sql);
+
+            sentencia.close();
+            con.close();
+            sql = "";
+
+            return resultado;
+        } catch (Exception e) {
+            return -2;
+        }
+    }
+
 }

@@ -32,7 +32,7 @@ namespace ProyectoIPC2.Páginas.Maestra
 
         protected void Button7_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Páginas/Organizacion/organizacion.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -44,6 +44,11 @@ namespace ProyectoIPC2.Páginas.Maestra
         {
 
             Response.Redirect("~/Páginas/Login/Login.aspx");
+        }
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Páginas/Modulos/Empleado/empleado.aspx");
         }
     }
 }

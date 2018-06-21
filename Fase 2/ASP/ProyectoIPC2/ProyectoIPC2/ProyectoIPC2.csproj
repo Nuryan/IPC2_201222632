@@ -96,8 +96,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Páginas\Modulos\Empleado\crearEmpleado.aspx" />
+    <Content Include="Páginas\Modulos\Empleado\empleado.aspx" />
     <Content Include="Páginas\Modulos\portal.aspx" />
     <Content Include="Páginas\Modulos\Tienda\tienda.aspx" />
+    <Content Include="Páginas\Organizacion\añadirEmpleadoOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\crearOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\modificarOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\organizacion.aspx" />
@@ -140,6 +143,20 @@
     <Compile Include="Páginas\Maestra\portalMaestra.Master.designer.cs">
       <DependentUpon>portalMaestra.Master</DependentUpon>
     </Compile>
+    <Compile Include="Páginas\Modulos\Empleado\crearEmpleado.aspx.cs">
+      <DependentUpon>crearEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Empleado\crearEmpleado.aspx.designer.cs">
+      <DependentUpon>crearEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Empleado\empleado.aspx.cs">
+      <DependentUpon>empleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Empleado\empleado.aspx.designer.cs">
+      <DependentUpon>empleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Páginas\Modulos\portal.aspx.cs">
       <DependentUpon>portal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,6 +170,13 @@
     </Compile>
     <Compile Include="Páginas\Modulos\Tienda\tienda.aspx.designer.cs">
       <DependentUpon>tienda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\añadirEmpleadoOrganizacion.aspx.cs">
+      <DependentUpon>añadirEmpleadoOrganizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Organizacion\añadirEmpleadoOrganizacion.aspx.designer.cs">
+      <DependentUpon>añadirEmpleadoOrganizacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Páginas\Organizacion\crearOrganizacion.aspx.cs">
       <DependentUpon>crearOrganizacion.aspx</DependentUpon>

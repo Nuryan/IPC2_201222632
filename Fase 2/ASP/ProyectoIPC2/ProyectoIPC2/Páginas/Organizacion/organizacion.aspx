@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="div2" runat="server">
-<div class ="titulo">
+    <div class ="titulo">
     Mi
     Organización
 </div>
@@ -19,7 +19,7 @@
     <asp:Button ID="Button2" runat="server" Text="Modificar Organizacion" BackColor="Black" ForeColor="White" Width="60%" Height="35px" />
     <br />
     <br />
-    <asp:Button ID="Button3" runat="server" Text="Añadir Miembro" BackColor="Black" ForeColor="White" Width="60%" Height="35px" />
+    <asp:Button ID="Button3" runat="server" Text="Añadir Miembro" BackColor="Black" ForeColor="White" Width="60%" Height="35px" OnClick="Button3_Click" />
     <br />
     <br />
     <asp:Button ID="Button4" runat="server" Text="Eliminar Miembro" BackColor="Black" ForeColor="White" Width="60%" Height="35px" />

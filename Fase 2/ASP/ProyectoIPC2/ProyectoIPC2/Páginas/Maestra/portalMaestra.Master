@@ -31,6 +31,9 @@
                 <asp:Button ID="Button8" runat="server" Text="Mis Modulos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button7_Click" />
                 <br />
                 <br />
+                <asp:Button ID="Button9" runat="server" Text="Mis Empleados" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button9_Click"  />
+                <br />
+                <br />
                 <asp:Button ID="Button3" runat="server" Text="Administrar Usuarios" BackColor="Black" ForeColor="White" Width="80%" Height="35px" />
                 <br />
                 <br />

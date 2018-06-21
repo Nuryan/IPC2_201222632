@@ -11,23 +11,35 @@
   <message name="loginResponse">
     <part name="parameters" element="tns:loginResponse" />
   </message>
+  <message name="añadirParticipanteAOrganizacion">
+    <part name="parameters" element="tns:añadirParticipanteAOrganizacion" />
+  </message>
+  <message name="añadirParticipanteAOrganizacionResponse">
+    <part name="parameters" element="tns:añadirParticipanteAOrganizacionResponse" />
+  </message>
+  <message name="listarOrganizaciones">
+    <part name="parameters" element="tns:listarOrganizaciones" />
+  </message>
+  <message name="listarOrganizacionesResponse">
+    <part name="parameters" element="tns:listarOrganizacionesResponse" />
+  </message>
   <message name="crearOrganizacion">
     <part name="parameters" element="tns:crearOrganizacion" />
   </message>
   <message name="crearOrganizacionResponse">
     <part name="parameters" element="tns:crearOrganizacionResponse" />
   </message>
+  <message name="crearEmpleado">
+    <part name="parameters" element="tns:crearEmpleado" />
+  </message>
+  <message name="crearEmpleadoResponse">
+    <part name="parameters" element="tns:crearEmpleadoResponse" />
+  </message>
   <message name="crearUsuario">
     <part name="parameters" element="tns:crearUsuario" />
   </message>
   <message name="crearUsuarioResponse">
     <part name="parameters" element="tns:crearUsuarioResponse" />
-  </message>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
-  </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
   </message>
   <message name="prueba">
     <part name="parameters" element="tns:prueba" />
@@ -41,22 +53,42 @@
   <message name="getCargoUsuarioResponse">
     <part name="parameters" element="tns:getCargoUsuarioResponse" />
   </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
+  <message name="listarEmpleados">
+    <part name="parameters" element="tns:listarEmpleados" />
+  </message>
+  <message name="listarEmpleadosResponse">
+    <part name="parameters" element="tns:listarEmpleadosResponse" />
+  </message>
   <portType name="WSIPC2">
     <operation name="login">
       <input wsam:Action="http://Servicio/WSIPC2/loginRequest" message="tns:login" />
       <output wsam:Action="http://Servicio/WSIPC2/loginResponse" message="tns:loginResponse" />
     </operation>
+    <operation name="añadirParticipanteAOrganizacion">
+      <input wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionRequest" message="tns:añadirParticipanteAOrganizacion" />
+      <output wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionResponse" message="tns:añadirParticipanteAOrganizacionResponse" />
+    </operation>
+    <operation name="listarOrganizaciones">
+      <input wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesRequest" message="tns:listarOrganizaciones" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesResponse" message="tns:listarOrganizacionesResponse" />
+    </operation>
     <operation name="crearOrganizacion">
       <input wsam:Action="http://Servicio/WSIPC2/crearOrganizacionRequest" message="tns:crearOrganizacion" />
       <output wsam:Action="http://Servicio/WSIPC2/crearOrganizacionResponse" message="tns:crearOrganizacionResponse" />
     </operation>
+    <operation name="crearEmpleado">
+      <input wsam:Action="http://Servicio/WSIPC2/crearEmpleadoRequest" message="tns:crearEmpleado" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearEmpleadoResponse" message="tns:crearEmpleadoResponse" />
+    </operation>
     <operation name="crearUsuario">
       <input wsam:Action="http://Servicio/WSIPC2/crearUsuarioRequest" message="tns:crearUsuario" />
       <output wsam:Action="http://Servicio/WSIPC2/crearUsuarioResponse" message="tns:crearUsuarioResponse" />
-    </operation>
-    <operation name="hello">
-      <input wsam:Action="http://Servicio/WSIPC2/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://Servicio/WSIPC2/helloResponse" message="tns:helloResponse" />
     </operation>
     <operation name="prueba">
       <input wsam:Action="http://Servicio/WSIPC2/pruebaRequest" message="tns:prueba" />
@@ -65,6 +97,14 @@
     <operation name="getCargoUsuario">
       <input wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioRequest" message="tns:getCargoUsuario" />
       <output wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioResponse" message="tns:getCargoUsuarioResponse" />
+    </operation>
+    <operation name="hello">
+      <input wsam:Action="http://Servicio/WSIPC2/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://Servicio/WSIPC2/helloResponse" message="tns:helloResponse" />
+    </operation>
+    <operation name="listarEmpleados">
+      <input wsam:Action="http://Servicio/WSIPC2/listarEmpleadosRequest" message="tns:listarEmpleados" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarEmpleadosResponse" message="tns:listarEmpleadosResponse" />
     </operation>
   </portType>
   <binding name="WSIPC2PortBinding" type="tns:WSIPC2">
@@ -78,6 +118,24 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="añadirParticipanteAOrganizacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrganizaciones">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="crearOrganizacion">
       <soap:operation soapAction="" />
       <input>
@@ -87,7 +145,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="crearUsuario">
+    <operation name="crearEmpleado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,7 +154,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="crearUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -115,6 +173,24 @@
       </output>
     </operation>
     <operation name="getCargoUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpleados">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
