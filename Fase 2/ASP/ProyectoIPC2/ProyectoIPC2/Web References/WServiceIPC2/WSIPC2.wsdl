@@ -5,41 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/WSProyecto/WSIPC2?xsd=1" namespace="http://Servicio/" />
     </xsd:schema>
   </types>
-  <message name="login">
-    <part name="parameters" element="tns:login" />
+  <message name="getOrganizacionProveedores">
+    <part name="parameters" element="tns:getOrganizacionProveedores" />
   </message>
-  <message name="loginResponse">
-    <part name="parameters" element="tns:loginResponse" />
-  </message>
-  <message name="añadirParticipanteAOrganizacion">
-    <part name="parameters" element="tns:añadirParticipanteAOrganizacion" />
-  </message>
-  <message name="añadirParticipanteAOrganizacionResponse">
-    <part name="parameters" element="tns:añadirParticipanteAOrganizacionResponse" />
-  </message>
-  <message name="listarOrganizaciones">
-    <part name="parameters" element="tns:listarOrganizaciones" />
-  </message>
-  <message name="listarOrganizacionesResponse">
-    <part name="parameters" element="tns:listarOrganizacionesResponse" />
-  </message>
-  <message name="crearOrganizacion">
-    <part name="parameters" element="tns:crearOrganizacion" />
-  </message>
-  <message name="crearOrganizacionResponse">
-    <part name="parameters" element="tns:crearOrganizacionResponse" />
-  </message>
-  <message name="crearEmpleado">
-    <part name="parameters" element="tns:crearEmpleado" />
-  </message>
-  <message name="crearEmpleadoResponse">
-    <part name="parameters" element="tns:crearEmpleadoResponse" />
-  </message>
-  <message name="crearUsuario">
-    <part name="parameters" element="tns:crearUsuario" />
-  </message>
-  <message name="crearUsuarioResponse">
-    <part name="parameters" element="tns:crearUsuarioResponse" />
+  <message name="getOrganizacionProveedoresResponse">
+    <part name="parameters" element="tns:getOrganizacionProveedoresResponse" />
   </message>
   <message name="prueba">
     <part name="parameters" element="tns:prueba" />
@@ -47,11 +17,11 @@
   <message name="pruebaResponse">
     <part name="parameters" element="tns:pruebaResponse" />
   </message>
-  <message name="getCargoUsuario">
-    <part name="parameters" element="tns:getCargoUsuario" />
+  <message name="crearUsuario">
+    <part name="parameters" element="tns:crearUsuario" />
   </message>
-  <message name="getCargoUsuarioResponse">
-    <part name="parameters" element="tns:getCargoUsuarioResponse" />
+  <message name="crearUsuarioResponse">
+    <part name="parameters" element="tns:crearUsuarioResponse" />
   </message>
   <message name="hello">
     <part name="parameters" element="tns:hello" />
@@ -59,102 +29,267 @@
   <message name="helloResponse">
     <part name="parameters" element="tns:helloResponse" />
   </message>
+  <message name="getNumModulos">
+    <part name="parameters" element="tns:getNumModulos" />
+  </message>
+  <message name="getNumModulosResponse">
+    <part name="parameters" element="tns:getNumModulosResponse" />
+  </message>
+  <message name="getCargoUsuario">
+    <part name="parameters" element="tns:getCargoUsuario" />
+  </message>
+  <message name="getCargoUsuarioResponse">
+    <part name="parameters" element="tns:getCargoUsuarioResponse" />
+  </message>
+  <message name="comprarModulo">
+    <part name="parameters" element="tns:comprarModulo" />
+  </message>
+  <message name="comprarModuloResponse">
+    <part name="parameters" element="tns:comprarModuloResponse" />
+  </message>
+  <message name="getSaldo">
+    <part name="parameters" element="tns:getSaldo" />
+  </message>
+  <message name="getSaldoResponse">
+    <part name="parameters" element="tns:getSaldoResponse" />
+  </message>
+  <message name="comprarSlots">
+    <part name="parameters" element="tns:comprarSlots" />
+  </message>
+  <message name="comprarSlotsResponse">
+    <part name="parameters" element="tns:comprarSlotsResponse" />
+  </message>
   <message name="listarEmpleados">
     <part name="parameters" element="tns:listarEmpleados" />
   </message>
   <message name="listarEmpleadosResponse">
     <part name="parameters" element="tns:listarEmpleadosResponse" />
   </message>
+  <message name="crearEmpleado">
+    <part name="parameters" element="tns:crearEmpleado" />
+  </message>
+  <message name="crearEmpleadoResponse">
+    <part name="parameters" element="tns:crearEmpleadoResponse" />
+  </message>
+  <message name="crearCliente">
+    <part name="parameters" element="tns:crearCliente" />
+  </message>
+  <message name="crearClienteResponse">
+    <part name="parameters" element="tns:crearClienteResponse" />
+  </message>
+  <message name="getNombresClientes">
+    <part name="parameters" element="tns:getNombresClientes" />
+  </message>
+  <message name="getNombresClientesResponse">
+    <part name="parameters" element="tns:getNombresClientesResponse" />
+  </message>
+  <message name="login">
+    <part name="parameters" element="tns:login" />
+  </message>
+  <message name="loginResponse">
+    <part name="parameters" element="tns:loginResponse" />
+  </message>
+  <message name="getNitClientes">
+    <part name="parameters" element="tns:getNitClientes" />
+  </message>
+  <message name="getNitClientesResponse">
+    <part name="parameters" element="tns:getNitClientesResponse" />
+  </message>
+  <message name="eliminarProveedor">
+    <part name="parameters" element="tns:eliminarProveedor" />
+  </message>
+  <message name="eliminarProveedorResponse">
+    <part name="parameters" element="tns:eliminarProveedorResponse" />
+  </message>
+  <message name="getNombreProveedores">
+    <part name="parameters" element="tns:getNombreProveedores" />
+  </message>
+  <message name="getNombreProveedoresResponse">
+    <part name="parameters" element="tns:getNombreProveedoresResponse" />
+  </message>
+  <message name="listarOrganizaciones">
+    <part name="parameters" element="tns:listarOrganizaciones" />
+  </message>
+  <message name="listarOrganizacionesResponse">
+    <part name="parameters" element="tns:listarOrganizacionesResponse" />
+  </message>
+  <message name="listarDescripcionModulos">
+    <part name="parameters" element="tns:listarDescripcionModulos" />
+  </message>
+  <message name="listarDescripcionModulosResponse">
+    <part name="parameters" element="tns:listarDescripcionModulosResponse" />
+  </message>
+  <message name="getDetallePersona">
+    <part name="parameters" element="tns:getDetallePersona" />
+  </message>
+  <message name="getDetallePersonaResponse">
+    <part name="parameters" element="tns:getDetallePersonaResponse" />
+  </message>
+  <message name="getModulosAdquiridos">
+    <part name="parameters" element="tns:getModulosAdquiridos" />
+  </message>
+  <message name="getModulosAdquiridosResponse">
+    <part name="parameters" element="tns:getModulosAdquiridosResponse" />
+  </message>
+  <message name="crearOrganizacion">
+    <part name="parameters" element="tns:crearOrganizacion" />
+  </message>
+  <message name="crearOrganizacionResponse">
+    <part name="parameters" element="tns:crearOrganizacionResponse" />
+  </message>
+  <message name="añadirParticipanteAOrganizacion">
+    <part name="parameters" element="tns:añadirParticipanteAOrganizacion" />
+  </message>
+  <message name="añadirParticipanteAOrganizacionResponse">
+    <part name="parameters" element="tns:añadirParticipanteAOrganizacionResponse" />
+  </message>
+  <message name="listarNombresModulos">
+    <part name="parameters" element="tns:listarNombresModulos" />
+  </message>
+  <message name="listarNombresModulosResponse">
+    <part name="parameters" element="tns:listarNombresModulosResponse" />
+  </message>
+  <message name="listarPrecioModulos">
+    <part name="parameters" element="tns:listarPrecioModulos" />
+  </message>
+  <message name="listarPrecioModulosResponse">
+    <part name="parameters" element="tns:listarPrecioModulosResponse" />
+  </message>
+  <message name="eliminarCliente">
+    <part name="parameters" element="tns:eliminarCliente" />
+  </message>
+  <message name="eliminarClienteResponse">
+    <part name="parameters" element="tns:eliminarClienteResponse" />
+  </message>
+  <message name="getTelefonoProveedores">
+    <part name="parameters" element="tns:getTelefonoProveedores" />
+  </message>
+  <message name="getTelefonoProveedoresResponse">
+    <part name="parameters" element="tns:getTelefonoProveedoresResponse" />
+  </message>
+  <message name="crearProveedor">
+    <part name="parameters" element="tns:crearProveedor" />
+  </message>
+  <message name="crearProveedorResponse">
+    <part name="parameters" element="tns:crearProveedorResponse" />
+  </message>
   <portType name="WSIPC2">
-    <operation name="login">
-      <input wsam:Action="http://Servicio/WSIPC2/loginRequest" message="tns:login" />
-      <output wsam:Action="http://Servicio/WSIPC2/loginResponse" message="tns:loginResponse" />
-    </operation>
-    <operation name="añadirParticipanteAOrganizacion">
-      <input wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionRequest" message="tns:añadirParticipanteAOrganizacion" />
-      <output wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionResponse" message="tns:añadirParticipanteAOrganizacionResponse" />
-    </operation>
-    <operation name="listarOrganizaciones">
-      <input wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesRequest" message="tns:listarOrganizaciones" />
-      <output wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesResponse" message="tns:listarOrganizacionesResponse" />
-    </operation>
-    <operation name="crearOrganizacion">
-      <input wsam:Action="http://Servicio/WSIPC2/crearOrganizacionRequest" message="tns:crearOrganizacion" />
-      <output wsam:Action="http://Servicio/WSIPC2/crearOrganizacionResponse" message="tns:crearOrganizacionResponse" />
-    </operation>
-    <operation name="crearEmpleado">
-      <input wsam:Action="http://Servicio/WSIPC2/crearEmpleadoRequest" message="tns:crearEmpleado" />
-      <output wsam:Action="http://Servicio/WSIPC2/crearEmpleadoResponse" message="tns:crearEmpleadoResponse" />
-    </operation>
-    <operation name="crearUsuario">
-      <input wsam:Action="http://Servicio/WSIPC2/crearUsuarioRequest" message="tns:crearUsuario" />
-      <output wsam:Action="http://Servicio/WSIPC2/crearUsuarioResponse" message="tns:crearUsuarioResponse" />
+    <operation name="getOrganizacionProveedores">
+      <input wsam:Action="http://Servicio/WSIPC2/getOrganizacionProveedoresRequest" message="tns:getOrganizacionProveedores" />
+      <output wsam:Action="http://Servicio/WSIPC2/getOrganizacionProveedoresResponse" message="tns:getOrganizacionProveedoresResponse" />
     </operation>
     <operation name="prueba">
       <input wsam:Action="http://Servicio/WSIPC2/pruebaRequest" message="tns:prueba" />
       <output wsam:Action="http://Servicio/WSIPC2/pruebaResponse" message="tns:pruebaResponse" />
     </operation>
-    <operation name="getCargoUsuario">
-      <input wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioRequest" message="tns:getCargoUsuario" />
-      <output wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioResponse" message="tns:getCargoUsuarioResponse" />
+    <operation name="crearUsuario">
+      <input wsam:Action="http://Servicio/WSIPC2/crearUsuarioRequest" message="tns:crearUsuario" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearUsuarioResponse" message="tns:crearUsuarioResponse" />
     </operation>
     <operation name="hello">
       <input wsam:Action="http://Servicio/WSIPC2/helloRequest" message="tns:hello" />
       <output wsam:Action="http://Servicio/WSIPC2/helloResponse" message="tns:helloResponse" />
     </operation>
+    <operation name="getNumModulos">
+      <input wsam:Action="http://Servicio/WSIPC2/getNumModulosRequest" message="tns:getNumModulos" />
+      <output wsam:Action="http://Servicio/WSIPC2/getNumModulosResponse" message="tns:getNumModulosResponse" />
+    </operation>
+    <operation name="getCargoUsuario">
+      <input wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioRequest" message="tns:getCargoUsuario" />
+      <output wsam:Action="http://Servicio/WSIPC2/getCargoUsuarioResponse" message="tns:getCargoUsuarioResponse" />
+    </operation>
+    <operation name="comprarModulo">
+      <input wsam:Action="http://Servicio/WSIPC2/comprarModuloRequest" message="tns:comprarModulo" />
+      <output wsam:Action="http://Servicio/WSIPC2/comprarModuloResponse" message="tns:comprarModuloResponse" />
+    </operation>
+    <operation name="getSaldo">
+      <input wsam:Action="http://Servicio/WSIPC2/getSaldoRequest" message="tns:getSaldo" />
+      <output wsam:Action="http://Servicio/WSIPC2/getSaldoResponse" message="tns:getSaldoResponse" />
+    </operation>
+    <operation name="comprarSlots">
+      <input wsam:Action="http://Servicio/WSIPC2/comprarSlotsRequest" message="tns:comprarSlots" />
+      <output wsam:Action="http://Servicio/WSIPC2/comprarSlotsResponse" message="tns:comprarSlotsResponse" />
+    </operation>
     <operation name="listarEmpleados">
       <input wsam:Action="http://Servicio/WSIPC2/listarEmpleadosRequest" message="tns:listarEmpleados" />
       <output wsam:Action="http://Servicio/WSIPC2/listarEmpleadosResponse" message="tns:listarEmpleadosResponse" />
     </operation>
+    <operation name="crearEmpleado">
+      <input wsam:Action="http://Servicio/WSIPC2/crearEmpleadoRequest" message="tns:crearEmpleado" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearEmpleadoResponse" message="tns:crearEmpleadoResponse" />
+    </operation>
+    <operation name="crearCliente">
+      <input wsam:Action="http://Servicio/WSIPC2/crearClienteRequest" message="tns:crearCliente" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearClienteResponse" message="tns:crearClienteResponse" />
+    </operation>
+    <operation name="getNombresClientes">
+      <input wsam:Action="http://Servicio/WSIPC2/getNombresClientesRequest" message="tns:getNombresClientes" />
+      <output wsam:Action="http://Servicio/WSIPC2/getNombresClientesResponse" message="tns:getNombresClientesResponse" />
+    </operation>
+    <operation name="login">
+      <input wsam:Action="http://Servicio/WSIPC2/loginRequest" message="tns:login" />
+      <output wsam:Action="http://Servicio/WSIPC2/loginResponse" message="tns:loginResponse" />
+    </operation>
+    <operation name="getNitClientes">
+      <input wsam:Action="http://Servicio/WSIPC2/getNitClientesRequest" message="tns:getNitClientes" />
+      <output wsam:Action="http://Servicio/WSIPC2/getNitClientesResponse" message="tns:getNitClientesResponse" />
+    </operation>
+    <operation name="eliminarProveedor">
+      <input wsam:Action="http://Servicio/WSIPC2/eliminarProveedorRequest" message="tns:eliminarProveedor" />
+      <output wsam:Action="http://Servicio/WSIPC2/eliminarProveedorResponse" message="tns:eliminarProveedorResponse" />
+    </operation>
+    <operation name="getNombreProveedores">
+      <input wsam:Action="http://Servicio/WSIPC2/getNombreProveedoresRequest" message="tns:getNombreProveedores" />
+      <output wsam:Action="http://Servicio/WSIPC2/getNombreProveedoresResponse" message="tns:getNombreProveedoresResponse" />
+    </operation>
+    <operation name="listarOrganizaciones">
+      <input wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesRequest" message="tns:listarOrganizaciones" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarOrganizacionesResponse" message="tns:listarOrganizacionesResponse" />
+    </operation>
+    <operation name="listarDescripcionModulos">
+      <input wsam:Action="http://Servicio/WSIPC2/listarDescripcionModulosRequest" message="tns:listarDescripcionModulos" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarDescripcionModulosResponse" message="tns:listarDescripcionModulosResponse" />
+    </operation>
+    <operation name="getDetallePersona">
+      <input wsam:Action="http://Servicio/WSIPC2/getDetallePersonaRequest" message="tns:getDetallePersona" />
+      <output wsam:Action="http://Servicio/WSIPC2/getDetallePersonaResponse" message="tns:getDetallePersonaResponse" />
+    </operation>
+    <operation name="getModulosAdquiridos">
+      <input wsam:Action="http://Servicio/WSIPC2/getModulosAdquiridosRequest" message="tns:getModulosAdquiridos" />
+      <output wsam:Action="http://Servicio/WSIPC2/getModulosAdquiridosResponse" message="tns:getModulosAdquiridosResponse" />
+    </operation>
+    <operation name="crearOrganizacion">
+      <input wsam:Action="http://Servicio/WSIPC2/crearOrganizacionRequest" message="tns:crearOrganizacion" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearOrganizacionResponse" message="tns:crearOrganizacionResponse" />
+    </operation>
+    <operation name="añadirParticipanteAOrganizacion">
+      <input wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionRequest" message="tns:añadirParticipanteAOrganizacion" />
+      <output wsam:Action="http://Servicio/WSIPC2/añadirParticipanteAOrganizacionResponse" message="tns:añadirParticipanteAOrganizacionResponse" />
+    </operation>
+    <operation name="listarNombresModulos">
+      <input wsam:Action="http://Servicio/WSIPC2/listarNombresModulosRequest" message="tns:listarNombresModulos" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarNombresModulosResponse" message="tns:listarNombresModulosResponse" />
+    </operation>
+    <operation name="listarPrecioModulos">
+      <input wsam:Action="http://Servicio/WSIPC2/listarPrecioModulosRequest" message="tns:listarPrecioModulos" />
+      <output wsam:Action="http://Servicio/WSIPC2/listarPrecioModulosResponse" message="tns:listarPrecioModulosResponse" />
+    </operation>
+    <operation name="eliminarCliente">
+      <input wsam:Action="http://Servicio/WSIPC2/eliminarClienteRequest" message="tns:eliminarCliente" />
+      <output wsam:Action="http://Servicio/WSIPC2/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
+    </operation>
+    <operation name="getTelefonoProveedores">
+      <input wsam:Action="http://Servicio/WSIPC2/getTelefonoProveedoresRequest" message="tns:getTelefonoProveedores" />
+      <output wsam:Action="http://Servicio/WSIPC2/getTelefonoProveedoresResponse" message="tns:getTelefonoProveedoresResponse" />
+    </operation>
+    <operation name="crearProveedor">
+      <input wsam:Action="http://Servicio/WSIPC2/crearProveedorRequest" message="tns:crearProveedor" />
+      <output wsam:Action="http://Servicio/WSIPC2/crearProveedorResponse" message="tns:crearProveedorResponse" />
+    </operation>
   </portType>
   <binding name="WSIPC2PortBinding" type="tns:WSIPC2">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="login">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="añadirParticipanteAOrganizacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarOrganizaciones">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="crearOrganizacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="crearEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="crearUsuario">
+    <operation name="getOrganizacionProveedores">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -172,7 +307,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="getCargoUsuario">
+    <operation name="crearUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -190,7 +325,214 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="getNumModulos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCargoUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="comprarModulo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSaldo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="comprarSlots">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarEmpleados">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="crearEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="crearCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getNombresClientes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getNitClientes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarProveedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getNombreProveedores">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrganizaciones">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarDescripcionModulos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDetallePersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getModulosAdquiridos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="crearOrganizacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="añadirParticipanteAOrganizacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarNombresModulos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPrecioModulos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTelefonoProveedores">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="crearProveedor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

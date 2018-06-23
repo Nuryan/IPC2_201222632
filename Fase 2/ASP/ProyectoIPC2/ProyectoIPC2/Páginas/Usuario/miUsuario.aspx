@@ -5,10 +5,10 @@
     <center>
         <br />
         <br />
+        <div class ="titulo">Mi Usuario</div>
         <br />
         <br />
         <br />
-        <br />
-        pagina de Mi usauario
+        <asp:Table ID="Table1" runat="server"></asp:Table>
     </center>
 </asp:Content>

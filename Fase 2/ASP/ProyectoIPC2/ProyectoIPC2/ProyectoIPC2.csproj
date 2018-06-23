@@ -96,15 +96,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Páginas\Modulos\Clientes\portalClientes.aspx" />
     <Content Include="Páginas\Modulos\Empleado\crearEmpleado.aspx" />
     <Content Include="Páginas\Modulos\Empleado\empleado.aspx" />
     <Content Include="Páginas\Modulos\portal.aspx" />
+    <Content Include="Páginas\Modulos\Proveedores\portalProveedores.aspx" />
+    <Content Include="Páginas\Modulos\Tienda\añadirModulo.aspx" />
+    <Content Include="Páginas\Modulos\Tienda\añadirSlotsDeEmpleados.aspx" />
+    <Content Include="Páginas\Modulos\Tienda\añadirTiempo.aspx" />
     <Content Include="Páginas\Modulos\Tienda\tienda.aspx" />
     <Content Include="Páginas\Organizacion\añadirEmpleadoOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\crearOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\modificarOrganizacion.aspx" />
     <Content Include="Páginas\Organizacion\organizacion.aspx" />
+    <Content Include="Páginas\Usuario\detallesSaldo.aspx" />
+    <Content Include="Páginas\Usuario\generarBoletaPago.aspx" />
+    <Content Include="Páginas\Usuario\misModulos.aspx" />
     <Content Include="Páginas\Usuario\miUsuario.aspx" />
+    <Content Include="Páginas\Usuario\pagos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +152,13 @@
     <Compile Include="Páginas\Maestra\portalMaestra.Master.designer.cs">
       <DependentUpon>portalMaestra.Master</DependentUpon>
     </Compile>
+    <Compile Include="Páginas\Modulos\Clientes\portalClientes.aspx.cs">
+      <DependentUpon>portalClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Clientes\portalClientes.aspx.designer.cs">
+      <DependentUpon>portalClientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Páginas\Modulos\Empleado\crearEmpleado.aspx.cs">
       <DependentUpon>crearEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +179,34 @@
     </Compile>
     <Compile Include="Páginas\Modulos\portal.aspx.designer.cs">
       <DependentUpon>portal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Proveedores\portalProveedores.aspx.cs">
+      <DependentUpon>portalProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Proveedores\portalProveedores.aspx.designer.cs">
+      <DependentUpon>portalProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirModulo.aspx.cs">
+      <DependentUpon>añadirModulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirModulo.aspx.designer.cs">
+      <DependentUpon>añadirModulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirSlotsDeEmpleados.aspx.cs">
+      <DependentUpon>añadirSlotsDeEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirSlotsDeEmpleados.aspx.designer.cs">
+      <DependentUpon>añadirSlotsDeEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirTiempo.aspx.cs">
+      <DependentUpon>añadirTiempo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Modulos\Tienda\añadirTiempo.aspx.designer.cs">
+      <DependentUpon>añadirTiempo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Páginas\Modulos\Tienda\tienda.aspx.cs">
       <DependentUpon>tienda.aspx</DependentUpon>
@@ -199,12 +243,40 @@
     <Compile Include="Páginas\Organizacion\organizacion.aspx.designer.cs">
       <DependentUpon>organizacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Páginas\Usuario\detallesSaldo.aspx.cs">
+      <DependentUpon>detallesSaldo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Usuario\detallesSaldo.aspx.designer.cs">
+      <DependentUpon>detallesSaldo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Usuario\generarBoletaPago.aspx.cs">
+      <DependentUpon>generarBoletaPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Usuario\generarBoletaPago.aspx.designer.cs">
+      <DependentUpon>generarBoletaPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Usuario\misModulos.aspx.cs">
+      <DependentUpon>misModulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Usuario\misModulos.aspx.designer.cs">
+      <DependentUpon>misModulos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Páginas\Usuario\miUsuario.aspx.cs">
       <DependentUpon>miUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Páginas\Usuario\miUsuario.aspx.designer.cs">
       <DependentUpon>miUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Páginas\Usuario\pagos.aspx.cs">
+      <DependentUpon>pagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Páginas\Usuario\pagos.aspx.designer.cs">
+      <DependentUpon>pagos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\WServiceIPC2\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -214,13 +286,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Páginas\Modulos\Blog\" />
-    <Folder Include="Páginas\Modulos\Clientes\" />
     <Folder Include="Páginas\Modulos\Compras\" />
     <Folder Include="Páginas\Modulos\Descuentos\CRM\" />
     <Folder Include="Páginas\Modulos\Eventos\" />
     <Folder Include="Páginas\Modulos\Facturacion\" />
     <Folder Include="Páginas\Modulos\Inventario\" />
-    <Folder Include="Páginas\Modulos\Proveedores\" />
     <Folder Include="Páginas\Modulos\Reclutamiento\" />
     <Folder Include="Páginas\Modulos\Ventas\" />
   </ItemGroup>

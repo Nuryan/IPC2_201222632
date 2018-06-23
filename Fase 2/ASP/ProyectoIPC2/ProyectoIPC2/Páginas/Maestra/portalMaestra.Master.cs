@@ -26,13 +26,13 @@ namespace ProyectoIPC2.Páginas.Maestra
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Páginas/Modulos/Tienda/tienda.aspx", true);
+            Response.Redirect("~/Páginas/Modulos/Tienda/tienda.aspx");
         }
         
 
         protected void Button7_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Páginas/Organizacion/organizacion.aspx");
+            Response.Redirect("~/Páginas/Usuario/misModulos.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)

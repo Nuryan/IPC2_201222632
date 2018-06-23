@@ -54,7 +54,7 @@ public class Usuario {
 
     public String crearUsuarioLogin(String dpi, String nombres, String apellidos, String contraseña, String contraseñaRep, String email) {
         int resultado = 0;
-
+        Modulo mod = new Modulo();
         con = Conexion.getConexion();
         if (!contraseña.equals(contraseñaRep)) {
             return "Contraseñas no iguales";
@@ -72,7 +72,9 @@ public class Usuario {
 
             sentencia.close();
             con.close();
-            sql = "";
+
+            mod.comprarModulo(email, "Clientes", 100);
+            mod.comprarModulo(email, "Proveedores", 100);
             return "Usuario Creado";
         } catch (Exception e) {
             return e.toString();
@@ -150,12 +152,12 @@ public class Usuario {
     }
 
     public String crearEmpleado(String dpi, String nombres, String apellidos, String contraseña, String contraseñaRep, String emailEmpleado, String emailUsuario) {
-        if (getPlazasDisponibles(emailUsuario)>0) {
+        if (getPlazasDisponibles(emailUsuario) > 0) {
             if (crearUsuarioLogin(dpi, nombres, apellidos, contraseña, contraseñaRep, emailEmpleado).equals("Usuario Creado")) {
 
                 if (alterarCargo(emailEmpleado) > 0) {
                     if (añadirEmpleado(emailUsuario, emailEmpleado) > 0) {
-                        reducirPlazasEmpleado(emailEmpleado);
+//                        reducirPlazasEmpleado(emailUsuario);
                         return "Usuario Creado";
                     } else {
                         return "Usuario Noo Creado";
@@ -198,6 +200,51 @@ public class Usuario {
         }
     }
 
+    public int añadirSlotEmpleado(String usuario, int nuevosSlots) {
+        try {
+            Connection con = Conexion.getConexion();
+
+            Statement sentencia = con.createStatement();
+            int saldo = 50 * nuevosSlots;
+            sql = "update persona set numEmpleados = numEmpleados + (" + nuevosSlots + ") where idPersona = " + getIdPersona(usuario) + ";"
+                    + "update persona set saldo = saldo + (" + saldo + ") where idPersona = " + getIdPersona(usuario);
+
+            int resultado = sentencia.executeUpdate(sql);
+
+            con.close();
+            sentencia.close();
+
+            return 1;
+        } catch (Exception e) {
+            return -2;
+        }
+    }
+
+    public float getSaldoActual(String usuario) {
+        try {
+            float devolver = 0;
+
+            Connection con = Conexion.getConexion();
+
+            Statement sentencia = con.createStatement();
+
+            sql = "select saldo from persona where idPersona = " + getIdPersona(usuario);
+
+            ResultSet resultado = sentencia.executeQuery(sql);
+
+            while (resultado.next()) {
+                devolver = resultado.getFloat(1);
+            }
+
+            sentencia.close();
+            con.close();
+
+            return devolver;
+        } catch (Exception e) {
+            return -2;
+        }
+    }
+
     public int alterarCargo(String email) {
         //lo pone como empleado, que es el rango 3
         int resultado = 0;
@@ -224,14 +271,14 @@ public class Usuario {
             return -1;
         }
     }
-    
-    public int reducirPlazasEmpleado(String email){
+
+    public int reducirPlazasEmpleado(String email) {
         //evita que el empleado pueda crear mas empleados
         int resultado = 0;
 
         con = Conexion.getConexion();
 
-        sql = "update persona set numEmpleados = 0 where idPersona = " + getIdPersona(email);
+        sql = "update persona set numEmpleados = numEmpleados-1 where idPersona = " + getIdPersona(email);
 
         try {
 
@@ -257,7 +304,7 @@ public class Usuario {
 
         con = Conexion.getConexion();
         try {
-            sql = "select count(*) from empleado where idUsuario = 1 " + getIdPersona(email);
+            sql = "select count(*) from empleado where idUsuario = " + getIdPersona(email);
 
             ResultSet resul = null;
             sentencia = con.createStatement();
@@ -301,13 +348,13 @@ public class Usuario {
             return 0;
         }
     }
-    
+
     public ArrayList<String> listarParticipantes(String emailEncargado) {
         con = Conexion.getConexion();
         ArrayList<String> listado = new ArrayList<String>();
 
         try {
-            sql = "select persona.email from empleado inner join persona on persona.idPersona = empleado.idEmpleado where empleado.idUsuario = "+getIdPersona(emailEncargado);
+            sql = "select persona.email from empleado inner join persona on persona.idPersona = empleado.idEmpleado where empleado.idUsuario = " + getIdPersona(emailEncargado);
 
             ResultSet resul = null;
             sentencia = con.createStatement();
@@ -323,10 +370,40 @@ public class Usuario {
             return listado;
         } catch (Exception e) {
             ArrayList<String> devolver = new ArrayList<String>();
-            
+
             devolver.add("No se encontro ningun empleado");
-            
+
             return devolver;
         }
     }
+
+    public ArrayList<String> getDetallePesona(String usuario) {
+        ArrayList<String> devolver = new ArrayList<String>();
+        try {
+            Connection con = Conexion.getConexion();
+            sql = "select nombres, apellidos, email, numEmpleados, saldo from persona where idPersona = " + getIdPersona(usuario);
+
+            ResultSet resul = null;
+            Statement sentencia = con.createStatement();
+
+            resul = sentencia.executeQuery(sql);
+
+            while (resul.next()) {
+                devolver.add(resul.getString(1));
+                devolver.add(resul.getString(2));
+                devolver.add(resul.getString(3));
+                devolver.add(resul.getString(4));
+                devolver.add(resul.getString(5));
+            }
+            sentencia.close();
+            con.close();
+            sql = "";
+            
+            return devolver;
+        } catch (Exception e) {
+            devolver.add(e.toString());
+            return devolver;
+        }
+    }
+
 }

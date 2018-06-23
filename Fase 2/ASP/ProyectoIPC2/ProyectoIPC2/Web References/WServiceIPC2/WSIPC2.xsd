@@ -2,38 +2,182 @@
 <xs:schema xmlns:tns="http://Servicio/" targetNamespace="http://Servicio/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="añadirParticipanteAOrganizacion" type="tns:añadirParticipanteAOrganizacion" />
   <xs:element name="añadirParticipanteAOrganizacionResponse" type="tns:añadirParticipanteAOrganizacionResponse" />
+  <xs:element name="comprarModulo" type="tns:comprarModulo" />
+  <xs:element name="comprarModuloResponse" type="tns:comprarModuloResponse" />
+  <xs:element name="comprarSlots" type="tns:comprarSlots" />
+  <xs:element name="comprarSlotsResponse" type="tns:comprarSlotsResponse" />
+  <xs:element name="crearCliente" type="tns:crearCliente" />
+  <xs:element name="crearClienteResponse" type="tns:crearClienteResponse" />
   <xs:element name="crearEmpleado" type="tns:crearEmpleado" />
   <xs:element name="crearEmpleadoResponse" type="tns:crearEmpleadoResponse" />
   <xs:element name="crearOrganizacion" type="tns:crearOrganizacion" />
   <xs:element name="crearOrganizacionResponse" type="tns:crearOrganizacionResponse" />
+  <xs:element name="crearProveedor" type="tns:crearProveedor" />
+  <xs:element name="crearProveedorResponse" type="tns:crearProveedorResponse" />
   <xs:element name="crearUsuario" type="tns:crearUsuario" />
   <xs:element name="crearUsuarioResponse" type="tns:crearUsuarioResponse" />
+  <xs:element name="eliminarCliente" type="tns:eliminarCliente" />
+  <xs:element name="eliminarClienteResponse" type="tns:eliminarClienteResponse" />
+  <xs:element name="eliminarProveedor" type="tns:eliminarProveedor" />
+  <xs:element name="eliminarProveedorResponse" type="tns:eliminarProveedorResponse" />
   <xs:element name="getCargoUsuario" type="tns:getCargoUsuario" />
   <xs:element name="getCargoUsuarioResponse" type="tns:getCargoUsuarioResponse" />
+  <xs:element name="getDetallePersona" type="tns:getDetallePersona" />
+  <xs:element name="getDetallePersonaResponse" type="tns:getDetallePersonaResponse" />
+  <xs:element name="getModulosAdquiridos" type="tns:getModulosAdquiridos" />
+  <xs:element name="getModulosAdquiridosResponse" type="tns:getModulosAdquiridosResponse" />
+  <xs:element name="getNitClientes" type="tns:getNitClientes" />
+  <xs:element name="getNitClientesResponse" type="tns:getNitClientesResponse" />
+  <xs:element name="getNombreProveedores" type="tns:getNombreProveedores" />
+  <xs:element name="getNombreProveedoresResponse" type="tns:getNombreProveedoresResponse" />
+  <xs:element name="getNombresClientes" type="tns:getNombresClientes" />
+  <xs:element name="getNombresClientesResponse" type="tns:getNombresClientesResponse" />
+  <xs:element name="getNumModulos" type="tns:getNumModulos" />
+  <xs:element name="getNumModulosResponse" type="tns:getNumModulosResponse" />
+  <xs:element name="getOrganizacionProveedores" type="tns:getOrganizacionProveedores" />
+  <xs:element name="getOrganizacionProveedoresResponse" type="tns:getOrganizacionProveedoresResponse" />
+  <xs:element name="getSaldo" type="tns:getSaldo" />
+  <xs:element name="getSaldoResponse" type="tns:getSaldoResponse" />
+  <xs:element name="getTelefonoProveedores" type="tns:getTelefonoProveedores" />
+  <xs:element name="getTelefonoProveedoresResponse" type="tns:getTelefonoProveedoresResponse" />
   <xs:element name="hello" type="tns:hello" />
   <xs:element name="helloResponse" type="tns:helloResponse" />
+  <xs:element name="listarDescripcionModulos" type="tns:listarDescripcionModulos" />
+  <xs:element name="listarDescripcionModulosResponse" type="tns:listarDescripcionModulosResponse" />
   <xs:element name="listarEmpleados" type="tns:listarEmpleados" />
   <xs:element name="listarEmpleadosResponse" type="tns:listarEmpleadosResponse" />
+  <xs:element name="listarNombresModulos" type="tns:listarNombresModulos" />
+  <xs:element name="listarNombresModulosResponse" type="tns:listarNombresModulosResponse" />
   <xs:element name="listarOrganizaciones" type="tns:listarOrganizaciones" />
   <xs:element name="listarOrganizacionesResponse" type="tns:listarOrganizacionesResponse" />
+  <xs:element name="listarPrecioModulos" type="tns:listarPrecioModulos" />
+  <xs:element name="listarPrecioModulosResponse" type="tns:listarPrecioModulosResponse" />
   <xs:element name="login" type="tns:login" />
   <xs:element name="loginResponse" type="tns:loginResponse" />
   <xs:element name="prueba" type="tns:prueba" />
   <xs:element name="pruebaResponse" type="tns:pruebaResponse" />
-  <xs:complexType name="crearEmpleado">
+  <xs:complexType name="listarPrecioModulos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarPrecioModulosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="dpi" type="xs:string" />
-      <xs:element minOccurs="0" name="nombres" type="xs:string" />
-      <xs:element minOccurs="0" name="apellidos" type="xs:string" />
-      <xs:element minOccurs="0" name="contraseña" type="xs:string" />
-      <xs:element minOccurs="0" name="contraseñaRep" type="xs:string" />
-      <xs:element minOccurs="0" name="emailEmpleado" type="xs:string" />
-      <xs:element minOccurs="0" name="emailUsuario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:float" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="crearEmpleadoResponse">
+  <xs:complexType name="comprarSlots">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element name="meses" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comprarSlotsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNombresClientes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNombresClientesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNitClientes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNitClientesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseña" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element name="nit" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearClienteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nit" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarClienteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="añadirParticipanteAOrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="organizacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="añadirParticipanteAOrganizacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prueba">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dato1" type="xs:string" />
+      <xs:element minOccurs="0" name="Dato2" type="xs:string" />
+      <xs:element name="Dato3" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pruebaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getModulosAdquiridos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getModulosAdquiridosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNumModulos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getNumModulosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTelefonoProveedores">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTelefonoProveedoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarOrganizaciones">
@@ -42,6 +186,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarOrganizacionesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDetallePersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDetallePersonaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
@@ -61,46 +215,32 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getCargoUsuario">
+  <xs:complexType name="listarDescripcionModulos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarDescripcionModulosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getCargoUsuarioResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="login">
+  <xs:complexType name="getSaldo">
     <xs:sequence>
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
-      <xs:element minOccurs="0" name="contraseña" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="loginResponse">
+  <xs:complexType name="getSaldoResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
+      <xs:element name="return" type="xs:float" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="añadirParticipanteAOrganizacion">
+  <xs:complexType name="listarEmpleados">
     <xs:sequence>
       <xs:element minOccurs="0" name="email" type="xs:string" />
-      <xs:element minOccurs="0" name="organizacion" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="añadirParticipanteAOrganizacionResponse">
+  <xs:complexType name="listarEmpleadosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="hello">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="helloResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="crearOrganizacion">
@@ -114,25 +254,104 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="prueba">
+  <xs:complexType name="crearEmpleado">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Dato1" type="xs:string" />
-      <xs:element minOccurs="0" name="Dato2" type="xs:string" />
+      <xs:element minOccurs="0" name="dpi" type="xs:string" />
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidos" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseña" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseñaRep" type="xs:string" />
+      <xs:element minOccurs="0" name="emailEmpleado" type="xs:string" />
+      <xs:element minOccurs="0" name="emailUsuario" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="pruebaResponse">
+  <xs:complexType name="crearEmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNombreProveedores">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNombreProveedoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarNombresModulos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarNombresModulosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element name="telefono" type="xs:int" />
+      <xs:element minOccurs="0" name="organizacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearProveedorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpleados">
+  <xs:complexType name="getCargoUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="email" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpleadosResponse">
+  <xs:complexType name="getCargoUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrganizacionProveedores">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrganizacionProveedoresResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comprarModulo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="modulo" type="xs:string" />
+      <xs:element name="meses" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comprarModuloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProveedorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hello">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

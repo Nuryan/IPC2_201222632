@@ -20,4 +20,4 @@ namespace ProyectoIPC2.Páginas.Organizacion
             Label2.Text = ws.crearOrganizacion(TextBox1.Text, (string)Session["usuario"]);
         }
     }
-}
+} 

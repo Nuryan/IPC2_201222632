@@ -25,9 +25,6 @@
                 <asp:Button ID="Button2" runat="server" Text="Mi Usuario" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button2_Click" />
                 <br />
                 <br />
-                <asp:Button ID="Button7" runat="server" Text="Mi Organizacion" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button7_Click" />
-                <br />
-                <br />
                 <asp:Button ID="Button8" runat="server" Text="Mis Modulos" BackColor="Black" ForeColor="White" Width="80%" Height="35px" OnClick="Button7_Click" />
                 <br />
                 <br />
