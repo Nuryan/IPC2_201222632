@@ -1,0 +1,11 @@
+﻿body {
+    background-image: url('../Imagenes/invasores.jpg');
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: 50% bottom;
+}
+
+div {
+    color: white;
+}
+

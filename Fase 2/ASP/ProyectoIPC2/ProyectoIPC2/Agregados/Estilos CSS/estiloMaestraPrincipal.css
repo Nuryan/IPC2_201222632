@@ -1,0 +1,63 @@
+﻿body {
+
+/* Ubicación de la imagen */
+
+background-image: url(../Imagenes/gatos-de-la-historieta,-gato-blanco,-gato-negro,-gato-alargado-217339.jpg);
+
+/* Para dejar la imagen de fondo centrada, vertical y
+
+horizontalmente */
+
+background-position: center center;
+
+/* Para que la imagen de fondo no se repita */
+
+background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+background-attachment: fixed;
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+background-size: cover;
+
+/* Se muestra un color de fondo mientras se está cargando la imagen
+
+de fondo o si hay problemas para cargarla */
+
+background-color: #000000;
+
+color:white;
+}
+div.contenedor {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+@font-face {
+    font-family: "Mystery Quest";
+    src: url("../Fuentes/Rye-Regular.woff");
+}
+
+.centradoIzquierda {
+    text-align: center;
+    float: left;
+    width: 79%;
+    height: 404px;
+}
+
+.titulo{
+    font-family: "Mystery Quest", cursive;
+    font-size: 450%;
+    text-align: center;
+}
+
+.centradoDerecha{
+    text-align: left;
+    align-items: initial;
+    float: left;
+    width: 19%;
+}
